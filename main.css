@@ -1,0 +1,133 @@
+html {
+  height: 100%;
+  font-size: 16px; }
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  margin: 0; }
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  background: white; }
+
+.header {
+  font-family: OpenSans;
+  font-weight: 400; }
+  .header_big {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 1.5px; }
+  .header_sml {
+    font-size: 24px;
+    text-align: center; }
+    .header_sml_semibold {
+      font-weight: 600;
+      letter-spacing: 18px; }
+
+.basic {
+  font-size: 14px;
+  font-family: OpenSans;
+  font-weight: 400;
+  letter-spacing: 1px; }
+  .basic_exp_semibold {
+    font-weight: 600;
+    letter-spacing: 9px; }
+
+footer {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none; }
+
+.footer-container {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #22272b; }
+
+ul, li {
+  list-style: none;
+  display: inline;
+  padding: .2em .5em; }
+
+a:link, a:visited {
+  color: #a7a9ac;
+  text-decoration: none; }
+
+.footer-credit {
+  color: #666666; }
+
+.mission-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+  letter-spacing: 18px;
+  min-height: 500px;
+  font-family: OpenSans;
+  color: white;
+  background: url(rocket.png) no-repeat center center;
+  background-size: cover; }
+
+.mission-links-wraper {
+  margin: 20em 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.buttons-wraper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px; }
+
+button {
+  color: white;
+  background: none;
+  padding: .7em 2.3em .75em;
+  border: 1px solid white;
+  border-radius: 50px;
+  margin: 0 1.5em;
+  letter-spacing: 3px; }
+
+.container {
+  width: 50vw;
+  margin-left: 50vw; }
+
+hr {
+  color: #ccac5b; }
+
+
+/*# sourceMappingURL=main.css.map*/
