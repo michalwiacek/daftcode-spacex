@@ -1,25 +1,24 @@
 import { hot } from 'react-hot-loader';
 import * as React from 'react';
-import Home from './view/Home';
 
 import './styles/theme.sass';
-import Header from './components/Header';
-import Counter from './components/Counter';
 
-
-const HEADER_ITEMS = [
-  { name: 'Home' },
-  { name: 'Search' },
-  { name: 'Contact' },
-];
+import launch from './assets/sample_json_data/launch.json';
+import launchSite from './assets/sample_json_data/launch_site.json';
+import rocket from './assets/sample_json_data/rocket.json';
+import Footer from 'components/Footer';
+import LaunchDetails from 'view/LaunchDetails';
 
 class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <main>
-        <Header items={HEADER_ITEMS} />
-        <Home username="DaftCoder" />
-        <Counter />
+        <LaunchDetails
+        //launch={launch}
+        //launchSite={launchSite}
+        //rocket={rocket}
+        />
+        <Footer/>
       </main>
     );
   }

@@ -1,67 +1,119 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import './Counter.sass';
+/**
+ * Counter
+ * Component used to displaying time in format mm:ss
+ *
+ * sample use:
+ * <Counter from={4} to={1} onSuccess={() => alert("success!")}/>
+ * */
 
+import * as React from "react"
+import PropTypes from "prop-types"
+import format from "date-fns/format"
 
-function formatSec(secs) {
-  const isTrue = (typeof secs === 'number') && (secs >= 0);
-
-  if (!isTrue) {
-    throw new Error('Invalid format');
-  }
-  let result;
-  const minutes = Math.floor(secs / 60);
-  const seconds = Math.floor(secs % 60);
-  const minutesStr = minutes < 10 ? `0${minutes}` : `${minutes}`;
-  const secondsStr = seconds < 10 ? `0${seconds}` : `${seconds}`;
-
-  result = `${minutesStr} : ${secondsStr}`;
-
-  return result;
+/**
+ * Util function to display diff time in seconds between two parameters
+ */
+function getTimeDiff({ to, from }) {
+  return Math.abs(to - from)
 }
 
+class Counter extends React.PureComponent {
+  counterInterval
 
-class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      from: 66,
-      to: 59,
-    };
-    this.toggleTimer = this.toggleTimer.bind(this);
+  state = {
+    secondsLeft: getTimeDiff(this.props),
+    active: false,
   }
 
   componentDidMount() {
-    this.intervalId = setInterval(() => {
-      if (this.state.from !== this.state.to) {
-        this.setState({
-          from: this.state.from - 1,
-        });
+    this.togglePlay()
+  }
+
+  componentDidUpdate() {
+    this.validateSuccess();
+  }
+
+  /**
+   * Run onSuccess callback if defined after counter is finished
+   */
+  validateSuccess = () => {
+    const { secondsLeft } = this.state
+    const { onSuccess } = this.props
+    if (secondsLeft === 0 && onSuccess) {
+      onSuccess()
+    }
+  }
+
+  /**
+   * Run counter
+   */
+  start = () => {
+    this.counterInterval = setInterval(this.tick, 1000) //1000ms -> 1sec
+  }
+
+  tick = () => {
+    const { secondsLeft } = this.state
+    const newState = {
+      secondsLeft: secondsLeft - 1,
+    }
+
+    if (newState.secondsLeft === 0) {
+      newState.active = false
+      this.stop()
+    }
+    this.setState(newState)
+  }
+
+  /**
+   * Clear timer used by counter
+   */
+  stop = () => {
+    clearInterval(this.counterInterval)
+  }
+
+  /**
+   * Pause or play depending on active status
+   */
+  togglePlay = () => {
+    const { active, secondsLeft } = this.state
+    if(secondsLeft !== 0){
+      this.setState({ active: !active })
+      if (active) {
+        this.stop()
       } else {
-        this.setState({
-          from: this.state.to,
-        });
+        this.start()
       }
-    }, 1000);
+    }
   }
 
-  componentWillUnmount() {
-    clearInterval(this.intervalId);
-  }
+  /**
+   * Render formatted remaining time within button
+   */
+  renderTimeLabel = () => {
+    const { active, secondsLeft } = this.state
 
-  toggleTimer() {
-    this.setState({
-      from: 66,
-    });
+    const inlineStyle = {
+      fontSize: "2rem",
+      background: active ? "green" : "red",
+      borderRadius: "0.5rem",
+      padding: 10,
+    }
+
+    const date = new Date(0)
+    date.setSeconds(secondsLeft)
+
+    return <button style={inlineStyle}>{format(date, "mm:ss")}</button>
   }
 
   render() {
-    return (
-      <div className="container">
-        <h1>Odliczam pozostały czas do {this.state.to}</h1>
-        <button className="counter" onClick={this.toggleTimer}>{formatSec(this.state.from)} </button>
-      </div>
-    );
+    return <span onClick={this.togglePlay}>{this.renderTimeLabel()}</span>
   }
 }
-export default Counter;
+
+Counter.propTypes = {
+  from: PropTypes.number.isRequired,
+  to: PropTypes.number.isRequired,
+  onSuccess: PropTypes.func,
+}
+
+export default Counter

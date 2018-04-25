@@ -1,14 +1,37 @@
 @import "variables"
 
 html
-  font-size: 10px
+  height: 100%
+  font-size: 16px
 
 body
+  display: flex
+  flex-direction: column
+  height: 100vh
   margin: 0
 
 main
-  width: 80%
-  margin: 4rem auto 0
-  padding: 2rem
-  border-radius: 1rem
-  background: $background-color
+  flex: 1 0 auto
+  background: white
+
+.header
+  font-family: OpenSans
+  font-weight: 400
+  &_big
+    font-size: 36px
+    font-weight: 600
+    letter-spacing: 1.5px
+  &_sml
+    font-size: 24px
+    text-align: center
+    &_semibold
+      font-weight: 600
+      letter-spacing: 18px
+.basic
+  font-size: 14px
+  font-family: OpenSans
+  font-weight: 400
+  letter-spacing: 1px
+  &_exp_semibold
+    font-weight: 600
+    letter-spacing: 9px
