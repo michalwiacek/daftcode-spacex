@@ -1,20 +1,20 @@
 import * as React from "react"
-import '../styles/Footer.sass';
+//import '../styles/Footer.sass';
 
 class Footer extends React.Component {
 
   render() {
     return (
-      <footer>
-        <div className="footer-container">
-          <ul className="footer-nav">
-            <li className="basic"><span className="footer-credit">FOLLOW SPACEX  |</span></li>
-            <li className="basic"><a href="https://twitter.com/SpaceX">TWITTER</a></li>
-            <li className="basic"><a href="https://youtube.com/spacex">YOUTUBE</a></li>
-            <li className="basic"><a href="https://flickr.com/photos/spacex">FLICKR</a></li>
-            <li className="basic"><a href="https://www.instagram.com/spacex/">INSTAGRAM</a></li>
-          </ul>
-          <span className="basic footer-credit">2018 SPACE EXPLORATION TECHNOLOGIES CORP.</span>
+      <footer className="footer">
+        <div className="footer__container">
+          <span><span className="footer__follow">Follow SpaceX<span className="spacer">|</span></span>
+          <ul className="footer__nav">
+            <li className="footer__link"><a href="https://twitter.com/SpaceX">Twitter</a></li>
+            <li className="footer__link"><a href="https://youtube.com/spacex">Youtube</a></li>
+            <li className="footer__link"><a href="https://flickr.com/photos/spacex">Flickr</a></li>
+            <li className="footer__link"><a href="https://www.instagram.com/spacex/">Instagram</a></li>
+          </ul></span>
+          <div className="footer__credit">2018 Space Exploration Technologies CORP.</div>
         </div>
       </footer>
       );

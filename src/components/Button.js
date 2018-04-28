@@ -1,5 +1,5 @@
 import * as React from "react"
-import '../styles/Button.sass';
+//import '../styles/Button.sass';
 import PropTypes from 'prop-types';
 
 class Button extends React.Component {

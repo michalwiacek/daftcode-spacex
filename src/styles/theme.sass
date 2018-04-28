@@ -1,5 +1,10 @@
 @import "variables"
 
+@import "components/button"
+@import "components/footer"
+@import "components/missionlinks"
+@import "components/missiondetail"
+
 html
   height: 100%
   font-size: 16px
@@ -13,6 +18,7 @@ body
 main
   flex: 1 0 auto
   background: white
+  font-family: $open-sans
 
 .header
   font-family: OpenSans
@@ -35,3 +41,11 @@ main
   &_exp_semibold
     font-weight: 600
     letter-spacing: 9px
+a:link, a:visited
+  color: $cool-grey
+  text-decoration: none
+
+.lfloat
+  float: left
+.spacer
+  padding: 0 .3em 0 .9em

@@ -10,11 +10,19 @@ import Footer from 'components/Footer';
 import LaunchDetails from 'view/LaunchDetails';
 
 class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      contacts: []
+    }
+  }
+
   render() {
     return (
       <main>
         <LaunchDetails
-        //launch={launch}
+        launch={launch}
         //launchSite={launchSite}
         //rocket={rocket}
         />
