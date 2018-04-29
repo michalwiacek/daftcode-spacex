@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types";
 import {format, toUpper} from 'date-fns';
-import { en } from 'date-fns/locale/en'
+import { en } from 'date-fns/locale/en-US'
 
 class MissionLaunchPad extends React.Component {
   constructor() {

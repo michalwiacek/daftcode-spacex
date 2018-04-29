@@ -3,8 +3,9 @@ import MissionLinks from "../components/MissionLinks";
 import MissionDetail from "../components/MissionDetail";
 import MissionRocket from "../components/MissionRocket";
 import MissionLaunchPad from "../components/MissionLaunchPad";
+import MissionCounter from "../components/MissionCounter";
 import {format, toUpper} from 'date-fns';
-import { en } from 'date-fns/locale/en'
+import { en } from 'date-fns/locale/en-US'
 
 //import launch from "../components/launch";
 
@@ -18,12 +19,13 @@ class LaunchDetails extends React.Component {
 
   render() {
     const date = format(this.props.launch.launch_date_local, 'DD MMMM YYYY', {locale: en})
-    
+    const date_of_start = this.props.launch.launch_date_local
 
     return (
       <div className="LaunchDetails">
         <div className="LaunchDetails__main-container">
           <div className="LaunchDetails__counter">
+          <MissionCounter to={date_of_start} />
             <div className="MissionCounter">
               <p className="MissionCounter__date">{date}</p>
               <h1 className="MissionCounter__name">{this.props.launch.launch_site.site_name}</h1>
