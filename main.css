@@ -7,7 +7,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   background: #0f1112;
-  padding: 1.2em; }
+  padding: 1.4em; }
   .Header__go-back-button {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -17,10 +17,11 @@
         -ms-flex-direction: row;
             flex-direction: row;
     width: 20em;
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px;
-    letter-spacing: 9px;
+    letter-spacing: 15px;
     color: #ccac5b;
     border: none;
     background: none; }
@@ -54,6 +55,9 @@ a.button {
   text-decoration: none; }
   a.button:link, a.button:visited {
     color: white; }
+  a.button:hover {
+    -webkit-box-shadow: inset 0px 0px 10px 2px white;
+            box-shadow: inset 0px 0px 10px 2px white; }
 
 .footer__container {
   -ms-flex-negative: 0;
@@ -108,7 +112,7 @@ a.button {
           justify-content: center;
   font-weight: 600;
   letter-spacing: 18px;
-  min-height: 500px;
+  min-height: 580px;
   font-family: OpenSans;
   color: white;
   background: url(rocket.png) no-repeat center center;
@@ -123,7 +127,7 @@ a.button {
         -ms-flex-direction: column;
             flex-direction: column; }
   .MissionLinks__title {
-    margin: 1.3em auto;
+    margin: 2em auto 1em auto;
     font-family: "Open Sans", sans-serif;
     font-size: 24px;
     font-weight: 600; }
@@ -142,10 +146,11 @@ a.button {
   margin-bottom: 5em;
   text-transform: uppercase; }
   .MissionDetail__title {
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px;
-    letter-spacing: 9px;
+    letter-spacing: 15px;
     color: #ccac5b; }
   .MissionDetail__hr {
     display: block;
@@ -155,10 +160,12 @@ a.button {
     margin: 1em 0;
     padding: 0; }
   .MissionDetail__feed {
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px;
-    text-transform: initial; }
+    text-transform: initial;
+    color: #22272b; }
   .MissionDetail__block-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -193,11 +200,13 @@ a.button {
     line-height: 2em; }
   .MissionDetail__key {
     display: inline;
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px;
     color: #a7a9ac; }
   .MissionDetail__val {
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px;
@@ -213,10 +222,11 @@ a.button {
           flex-direction: column;
   text-transform: uppercase; }
   .MissionCounter__date {
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px;
-    letter-spacing: 9px;
+    letter-spacing: 15px;
     color: #a7a9ac; }
   .MissionCounter__name {
     margin: 0;
@@ -227,6 +237,7 @@ a.button {
     letter-spacing: 1.5px; }
   .MissionCounter__counter {
     margin: 0;
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px; }
@@ -241,10 +252,11 @@ a.button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 1px;
-  letter-spacing: 9px; }
+  letter-spacing: 15px; }
   .LaunchDetails__main-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -278,31 +290,7 @@ main {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  background: white;
-  font-family: "Open Sans", sans-serif; }
-
-.header {
-  font-family: OpenSans;
-  font-weight: 400; }
-  .header_big {
-    font-size: 36px;
-    font-weight: 600;
-    letter-spacing: 1.5px; }
-  .header_sml {
-    font-size: 24px;
-    text-align: center; }
-    .header_sml_semibold {
-      font-weight: 600;
-      letter-spacing: 18px; }
-
-.basic {
-  font-size: 14px;
-  font-family: OpenSans;
-  font-weight: 400;
-  letter-spacing: 1px; }
-  .basic_exp_semibold {
-    font-weight: 600;
-    letter-spacing: 9px; }
+  background: white; }
 
 a:link, a:visited {
   color: #a7a9ac;
