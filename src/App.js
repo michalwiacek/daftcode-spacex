@@ -14,7 +14,9 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
   constructor(props){
     super(props);
     this.state = {
-      contacts: []
+      launch: launch,
+      launchSite: launchSite,
+      rocket: rocket
     }
   }
 
@@ -23,8 +25,8 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
       <main>
         <LaunchDetails
         launch={launch}
-        //launchSite={launchSite}
-        //rocket={rocket}
+        launchSite={launchSite}
+        rocket={rocket}
         />
         <Footer/>
       </main>

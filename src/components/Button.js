@@ -9,12 +9,12 @@ class Button extends React.Component {
   
   render() {
     
-    const { buttonText } = this.props;
+    const { buttonText , link } = this.props;
     
     return (
-      <button>
+      <a href={link} className="button">
         { buttonText }
-      </button>
+      </a>
       );
   }
 }
