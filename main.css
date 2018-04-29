@@ -1,3 +1,48 @@
+.Header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background: #0f1112;
+  padding: 1.2em; }
+  .Header__go-back-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 20em;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    letter-spacing: 9px;
+    color: #ccac5b;
+    border: none;
+    background: none; }
+  .Header__logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: .8em;
+    margin: 0 auto;
+    height: 2em;
+    width: 15em;
+    background: url(space_x_logo_bw_centered.png) no-repeat;
+    background-size: cover; }
+  .Header .arrow {
+    -ms-flex-item-align: center;
+        align-self: center;
+    padding: 0 1.5em 0 0;
+    width: 2.4em;
+    height: .8em;
+    background: url(arrow.png) no-repeat;
+    z-index: 2; }
+
 a.button {
   color: white;
   background: none;
@@ -34,7 +79,8 @@ a.button {
   font-size: 14px;
   font-family: OpenSans;
   font-weight: 400;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  color: #666666; }
   .footer__nav {
     margin: 0;
     padding: 0;
@@ -48,9 +94,6 @@ a.button {
     padding: .2em .5em; }
   .footer__follow {
     color: #666666; }
-
-.footer__credit {
-  color: #666666; }
 
 .MissionLinks {
   display: -webkit-box;
