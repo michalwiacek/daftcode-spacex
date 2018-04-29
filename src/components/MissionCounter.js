@@ -8,27 +8,17 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
+import Moment from 'react-moment'
 import format from "date-fns/format"
-import formatDistanceStrict from "date-fns/formatDistanceStrict"
-import { formatDistance } from "date-fns/esm/fp";
 
 /**
  * Util function to display diff time in seconds between two parameters
  */
-function getTimeDiff({ to }) {
-  const today = new Date()
-  return Math.abs(to - today)
+function getTimeDiff({ to, today }) {
+  return Math.floor(Math.abs(to - today/1000))
 }
 
 class MissionCounter extends React.PureComponent {
-
-  constructor(){
-    super();
-      this.state={
-        date: null
-      }
-  }
-  
   counterInterval
   
   state = {
@@ -102,36 +92,33 @@ class MissionCounter extends React.PureComponent {
    */
   renderTimeLabel = () => {
     const { active, secondsLeft } = this.state
-
-    const inlineStyle = {
-      fontSize: "2rem",
-      background: active ? "green" : "red",
-      borderRadius: "0.5rem",
-      padding: 10,
-    }
     
     const date = new Date(0)
     date.setSeconds(secondsLeft)
-    
+    const sec = Math.floor(date /1000) % 60;
+    const min = Math.floor(date/(1000*60)) % 60;
+    const hrs = Math.floor(date/(1000*60*60)) % 24;
+    const days = Math.floor(date/(1000*60*60*24)) % 24;
 
-    return <p>{format(date, "mm:ss")}</p>
+    return <span className="MissionCounter__counter">{days} DAYS {hrs} HRS {min} MINS {sec} SEC TO START</span>
+    /*<span className="MissionCounter__counter">{format(date, "D [DAYS] H [HRS] mm [MINS] ss")} SEC TO START</span>
+    <span className="MissionCounter__counter">{format(date, "M [MTHS] D [DAYS] H [HRS] m [MINS] ss")} SEC TO START</span>
+    */
+  
   }
   
   render()
     
     {
       return (
-        <div>
-          <p>{formatDistance(to, today)}</p>
-          <span onClick={this.togglePlay}>{this.renderTimeLabel()}</span>
-        </div>
+        <span>{this.renderTimeLabel()}</span>
     );
   }
 }
 
 MissionCounter.propTypes = {
-  from: PropTypes.number.isRequired,
-  to: PropTypes.number.isRequired,
+  today: PropTypes.number,
+  to: PropTypes.number,
   onSuccess: PropTypes.func,
 }
 
