@@ -29,7 +29,7 @@ class LaunchDetails extends React.Component {
             <div className="MissionCounter">
               <p className="MissionCounter__date">{date}</p>
               <h1 className="MissionCounter__name">{this.props.launch.launch_site.site_name}</h1>
-              <MissionCounter to={date_of_start} today={new Date().getTime()} />
+              <MissionCounter to={date_of_start} today={Math.floor(new Date().getTime()/1000)} />
               <img className="MissionCounter__patch" src={this.props.launch.links.mission_patch_small} />
             </div>
           </div>

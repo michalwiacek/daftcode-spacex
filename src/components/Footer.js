@@ -1,5 +1,4 @@
 import * as React from "react"
-//import '../styles/Footer.sass';
 
 class Footer extends React.PureComponent {
 

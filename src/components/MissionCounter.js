@@ -15,7 +15,7 @@ import format from "date-fns/format"
  * Util function to display diff time in seconds between two parameters
  */
 function getTimeDiff({ to, today }) {
-  return Math.floor(Math.abs(to - today/1000))
+      return (to - today)
 }
 
 class MissionCounter extends React.PureComponent {
@@ -23,7 +23,7 @@ class MissionCounter extends React.PureComponent {
   
   state = {
     secondsLeft: getTimeDiff(this.props),
-    active: false,
+    isOff: false,
   }
 
   componentDidMount() {
@@ -99,12 +99,13 @@ class MissionCounter extends React.PureComponent {
     const min = Math.floor(date/(1000*60)) % 60;
     const hrs = Math.floor(date/(1000*60*60)) % 24;
     const days = Math.floor(date/(1000*60*60*24)) % 24;
-
+    if (date > 0) {
     return <span className="MissionCounter__counter">{days} DAYS {hrs} HRS {min} MINS {sec} SEC TO START</span>
     /*<span className="MissionCounter__counter">{format(date, "D [DAYS] H [HRS] mm [MINS] ss")} SEC TO START</span>
     <span className="MissionCounter__counter">{format(date, "M [MTHS] D [DAYS] H [HRS] m [MINS] ss")} SEC TO START</span>
     */
-  
+    }else{ 
+      return <span className="MissionCounter__counter">{Math.abs(days)} DAYS {Math.abs(hrs)} HRS {Math.abs(min)} MINS {Math.abs(sec)} SEC SINCE START</span>}
   }
   
   render()
