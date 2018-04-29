@@ -1,11 +1,14 @@
-button {
+a.button {
   color: white;
   background: none;
   padding: .7em 2.3em .75em;
   border: 1px solid white;
   border-radius: 50px;
   margin: 0 1.5em;
-  letter-spacing: 3px; }
+  letter-spacing: 3px;
+  text-decoration: none; }
+  a.button:link, a.button:visited {
+    color: white; }
 
 .footer__container {
   -ms-flex-negative: 0;
