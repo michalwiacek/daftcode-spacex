@@ -6,9 +6,9 @@ class MissionLinks extends React.PureComponent {
 
   render() {
     return (
-      <div className="mission-links">
-        <div className="mission-links-wraper">
-          <span className="header_sml title">MISSION LINKS</span>
+      <div className="MissionLinks">
+        <div className="MissionLinks__wraper">
+          <h2 className="MissionLinks__title">MISSION LINKS</h2>
           <div className="buttons-wraper">
             <Button link={this.props.reddit_campaign} buttonText="REDDIT CAMPAIGN"/>
             <Button link={this.props.presskit} buttonText="PRESSKIT"/>

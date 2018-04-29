@@ -21,13 +21,22 @@ class LaunchDetails extends React.Component {
     
 
     return (
-      <div>
-        <p>{date}</p>
-        <h1>{this.props.launch.launch_site.site_name_long}</h1>
-        <img src={this.props.launch.links.mission_patch_small} />
-        <MissionDetail details={this.props.launch.details}/>
-        <MissionRocket rocket={this.props.rocket}/>
-        <MissionLaunchPad launchSite={this.props.launchSite}/>
+      <div className="LaunchDetails">
+        <div className="LaunchDetails__main-container">
+          <div className="LaunchDetails__counter">
+            <div className="MissionCounter">
+              <p className="MissionCounter__date">{date}</p>
+              <h1 className="MissionCounter__name">{this.props.launch.launch_site.site_name}</h1>
+              <p className="MissionCounter__counter">20 days 11 hrs 34 mins to start</p>
+              <img className="MissionCounter__patch" src={this.props.launch.links.mission_patch_small} />
+            </div>
+          </div>
+          <div className="LaunchDetails__details">
+            <MissionDetail details={this.props.launch.details}/>
+            <MissionRocket rocket={this.props.rocket}/>
+            <MissionLaunchPad launchSite={this.props.launchSite}/>
+          </div>
+        </div>
         <MissionLinks 
         reddit_campaign={this.props.launch.links.reddit_campaign} 
         presskit={this.props.launch.links.presskit}

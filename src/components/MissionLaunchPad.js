@@ -19,12 +19,18 @@ class MissionLaunchPad extends React.Component {
       <div className="MissionDetail">
       <h2 className="MissionDetail__title">Launch Pad</h2>
       <hr className="MissionDetail__hr"/>
-        <ul>
-      <li><p className="MissionDetail_key">name:</p><p className="MissionDetail_val">{full_name}</p></li>
-        </ul>
-        <ul>
-      <li><p className="MissionDetail_key">location:</p><p className="MissionDetail_val">{location.name},{location.region}</p></li>
-        </ul>
+      <div className="MissionDetail__block-wrapper">
+      <blockquote className="MissionDetail__block">
+        <div className="MissionDetail__list">
+          <div className="MissionDetail__item"><span className="MissionDetail__key">name: </span><span className="MissionDetail__val">{full_name}</span></div>
+        </div>
+      </blockquote>
+      <blockquote className="MissionDetail__block">
+        <div className="MissionDetail__list">
+          <div className="MissionDetail__item"><span className="MissionDetail__key">location: </span><span className="MissionDetail__val">{location.name}, {location.region}</span></div>
+        </div>
+      </blockquote>
+      </div>
       <p className="MissionDetail__feed">{details}</p>
       </div>
     );

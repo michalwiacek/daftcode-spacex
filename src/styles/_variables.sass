@@ -6,11 +6,24 @@ $cool-grey: #a7a9ac
 
 $open-sans: 'Open Sans', sans-serif
 
-=header_big
+=header
   font-family: $open-sans
+  font-size: 24px
+  font-weight: 600
+=header_big
+  +header
+  font-size: 36px
+  letter-spacing: 1.5px
 
 =header_sml
-  font-size: 24px
+  +header
+  font-weight: 400
+  text-align: center
+
+=header_sml_semibold
+  +header
+  text-align: center
+  letter-spacing: 18px
 
 =basic
   font-size: 14px
