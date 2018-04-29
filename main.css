@@ -131,15 +131,14 @@ a.button {
     font-family: "Open Sans", sans-serif;
     font-size: 24px;
     font-weight: 600; }
-
-.buttons-wraper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 20px; }
+  .MissionLinks__buttons-wraper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 20px; }
 
 .MissionDetail {
   width: 50vw;
