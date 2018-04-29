@@ -8,6 +8,7 @@ import launchSite from './assets/sample_json_data/launch_site.json';
 import rocket from './assets/sample_json_data/rocket.json';
 import Footer from 'components/Footer';
 import LaunchDetails from 'view/LaunchDetails';
+import Header from 'components/Header'
 
 class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
   
@@ -23,6 +24,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
   render() {
     return (
       <main>
+        <Header />
         <LaunchDetails
         launch={launch}
         launchSite={launchSite}

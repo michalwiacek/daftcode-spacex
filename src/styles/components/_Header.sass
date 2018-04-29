@@ -1,0 +1,30 @@
+.Header
+  display: flex
+  flex-direction: row
+  background: $almost-black
+  padding: 1.2em
+  &__go-back-button
+    display: flex
+    flex-direction: row
+    width: 20em
+    +basic_exp
+    color: $desert
+    border: none
+    background: none
+  &__logo
+    position: absolute
+    left: 0
+    right: 0
+    top: .8em
+    margin: 0 auto
+    height: 2em
+    width: 15em
+    background: url("../assets/img/space_x_logo_bw_centered.png") no-repeat
+    background-size: cover
+  .arrow
+    align-self: center
+    padding: 0 1.5em 0 0 
+    width: 2.4em
+    height: .8em
+    background: url("../assets/img/arrow.png") no-repeat
+    z-index: 2
