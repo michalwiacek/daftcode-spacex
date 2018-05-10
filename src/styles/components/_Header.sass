@@ -1,6 +1,7 @@
 .Header
   display: flex
   flex-direction: row
+  justify-content: space-between
   background: $almost-black
   padding: 1.4em
   &__go-back-button
@@ -11,16 +12,14 @@
     color: $desert
     border: none
     background: none
+    flex: 1
   &__logo
-    position: absolute
-    left: 0
-    right: 0
-    top: .8em
-    margin: 0 auto
-    height: 2em
-    width: 15em
-    background: url("../assets/img/space_x_logo_bw_centered.png") no-repeat
-    background-size: cover
+    flex: 2
+    height: 36.5px
+    background: url("../assets/img/space_x_logo_bw_centered.png") center center no-repeat
+    background-size: 295px
+  &__side
+    flex: 1
   .arrow
     align-self: center
     padding: 0 1.5em 0 0 
