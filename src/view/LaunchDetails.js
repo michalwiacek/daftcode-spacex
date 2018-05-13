@@ -4,17 +4,17 @@ import MissionDetail from "../components/MissionDetail";
 import MissionRocket from "../components/MissionRocket";
 import MissionLaunchPad from "../components/MissionLaunchPad";
 import MissionCounter from "../components/MissionCounter";
-import {format, toUpper} from 'date-fns';
+import { format, toUpper } from 'date-fns';
 import { en } from 'date-fns/locale/en'
 
 //import launch from "../components/launch";
 
 class LaunchDetails extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state={
       launch: null
-    }
+    };
   }
 
   render() {
@@ -23,6 +23,13 @@ class LaunchDetails extends React.Component {
 
     return (
       <div className="LaunchDetails">
+        <div className="LaunchDetails__header">
+          <header className="Header">
+            <button className="Header__go-back-button" onClick={this.props.onBackClick}><div className="arrow"></div>GO BACK</button>
+            <span className="Header__logo"></span>
+            <div className="Header__side"></div>
+          </header>
+        </div>
         <div className="LaunchDetails__main-container">
           <div className="LaunchDetails__counter">
           

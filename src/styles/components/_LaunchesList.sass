@@ -1,0 +1,48 @@
+.LaunchesList
+  background: $almost-black
+  display: flex
+  flex-direction: column
+  +basic_exp
+  text-transform: uppercase
+  &__header
+    display: flex
+    flex-direction: column
+    margin: auto
+    width: 100vw
+    height: 612px
+    flex: 1
+    background: url("../assets/img/moon.png") no-repeat center center
+    background-size: 64%
+  &__header-wrapper
+    display: flex
+    flex-direction: column 
+    text-align: center
+    margin-top: 26em
+    margin-left: auto
+    margin-right: auto
+    height: 400px
+    width: 700px
+    
+  &__title
+    width: 700px
+    height: 200px
+    background: url("../assets/img/space_x_logo_bw_centered.png") no-repeat
+    background-position-x: 8em
+    background-position-y: center
+    background-size: 84%
+    margin: 0 auto
+  &__subtitle
+    margin: -1.8em auto auto 6.3em
+    +basic-exp
+    letter-spacing: .75em
+    font-size: 1.7em 
+    color: $cool-grey
+
+.filterButtons
+  display: flex
+  justify-content: space-around
+  width: 720px
+  margin: 1.6em auto
+
+.temp
+  height: 925px

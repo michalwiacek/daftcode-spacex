@@ -1,5 +1,4 @@
-import * as React from "react"
-//import '../styles/Button.sass';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 class Button extends React.Component {
@@ -9,14 +8,14 @@ class Button extends React.Component {
   
   render() {
     
-    const { buttonText , link } = this.props;
+    const { buttonText , link, className="button" } = this.props;
     
     return (
-      <a href={link} className="button">
+      <a href={link} className={className}>
         { buttonText }
       </a>
-      );
+    );
   }
 }
 
-export default Button
+export default Button;
