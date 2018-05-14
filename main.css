@@ -420,7 +420,8 @@ a.active {
   font-weight: 400;
   letter-spacing: 1px;
   width: calc(50% + 2.5px);
-  color: #a7a9ac; }
+  color: #a7a9ac;
+  cursor: pointer; }
   .LaunchItem__details-l, .LaunchItem__details-r {
     margin: .2em 0;
     width: 36vw; }
