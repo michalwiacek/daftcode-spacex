@@ -82,6 +82,10 @@ a.filterButtons__button {
     -webkit-box-shadow: inset 0px 0px 10px 2px white;
             box-shadow: inset 0px 0px 10px 2px white; }
 
+a.active {
+  -webkit-box-shadow: inset 0px 0px 10px 2px white;
+          box-shadow: inset 0px 0px 10px 2px white; }
+
 .footer__container {
   -ms-flex-negative: 0;
       flex-shrink: 0;
