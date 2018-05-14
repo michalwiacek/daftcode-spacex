@@ -11,7 +11,7 @@
     width: 100vw
     height: 612px
     flex: 1
-    background: url("../assets/img/moon.png") no-repeat center center
+    background: url("../assets/img/mars.png") no-repeat center center
     background-size: 64%
   &__header-wrapper
     display: flex
@@ -22,7 +22,6 @@
     margin-right: auto
     height: 400px
     width: 700px
-    
   &__title
     width: 700px
     height: 200px
@@ -32,11 +31,16 @@
     background-size: 84%
     margin: 0 auto
   &__subtitle
-    margin: -1.8em auto auto 6.3em
+    margin: -1.8em auto
     +basic-exp
     letter-spacing: .75em
     font-size: 1.7em 
     color: $cool-grey
+  &__list
+    margin-top: 1.5em
+    display: flex
+    flex-direction: column-reverse
+
 
 .filterButtons
   display: flex
@@ -44,5 +48,16 @@
   width: 720px
   margin: 1.6em auto
 
-.temp
-  height: 925px
+.LaunchesList__wrapper
+  position: relative
+  margin: 4em 2.5em
+  &:after
+      content: ""
+      position: absolute
+      z-index: 1
+      top: 0
+      bottom: 0
+      left: 50%
+      height: 100%
+      border: .5px dashed $cool-grey
+      transform: translate(-50%)

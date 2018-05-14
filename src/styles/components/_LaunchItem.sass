@@ -1,0 +1,86 @@
+.direction-l
+  align-self: flex-start
+  //padding-left: 2.9em
+.direction-r
+  align-self: flex-end
+  text-align: right
+  //padding-right: 2.7em
+.LaunchItem
+  display: flex
+  flex-direction: column
+  +basic
+  width: calc(50% + 2.5px)
+  color: $cool-grey
+  &__details-l, &__details-r
+    margin: .2em 0
+    width: 36vw
+    //height: 8px
+  &__hr-l,&__hr-r
+    width: 44.5vw
+    color: $desert
+  &__date-l,&__date-r
+    +basic_exp
+    color: white
+    margin: .2em 0
+  &__val
+    color: white
+  &__details-r
+    align-self: flex-end
+
+  &__divider-r
+    display: flex
+    flex-direction: row
+  &__divider-l
+    display: flex
+    flex-direction: row-reverse
+  &__hr-l
+    margin-left: 0
+    background: url('../assets/img/arrow_pointer.svg') no-repeat center left
+    background-size: contain
+    display: block
+    height: 10px
+    border: 0
+    position: relative
+    transform: rotate(180deg)
+    &:after
+      content: ""
+      display: block
+      position: relative
+      height: 2px
+      background: $desert
+      margin-top: 4px
+      left: 1%
+  &__hr-r
+    margin-right: 0
+    background: url('../assets/img/arrow_pointer.svg') no-repeat center left
+    background-size: contain
+    display: block
+    height: 10px
+    border: 0
+    position: relative
+    &:after
+      content: ""
+      display: block
+      position: relative
+      height: 2px
+      background: $desert
+      margin-top: 4px
+      right: -1%
+.dot-r
+  align-self: center
+  content: ""
+  position: absolute
+  background: $cool-grey
+  width: 6px
+  height: 6px
+  border-radius: 50%
+  margin: 0 auto
+.dot-l
+  align-self: center
+  content: ""
+  position: absolute
+  background: $cool-grey
+  width: 6px
+  height: 6px
+  border-radius: 50%
+  margin: 0 auto

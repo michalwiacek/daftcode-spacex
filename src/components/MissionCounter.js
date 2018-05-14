@@ -104,7 +104,7 @@ class MissionCounter extends React.PureComponent {
     /*<span className="MissionCounter__counter">{format(date, "D [DAYS] H [HRS] mm [MINS] ss")} SEC TO START</span>
     <span className="MissionCounter__counter">{format(date, "M [MTHS] D [DAYS] H [HRS] m [MINS] ss")} SEC TO START</span>
     */
-    }else{ 
+    } else { 
       return <span className="MissionCounter__counter">{Math.abs(days)} DAYS {Math.abs(hrs)} HRS {Math.abs(min)} MINS {Math.abs(sec)} SEC SINCE START</span>}
   }
   

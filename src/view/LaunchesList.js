@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { format, toUpper } from 'date-fns';
 import { en } from 'date-fns/locale/en';
-import FilterButtons from '../components/FilterButtons';
 import _ from 'lodash'
+import FilterButtons from '../components/FilterButtons';
+import LaunchItem from '../components/LaunchItem';
 
 class LaunchesList extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state={
-      launches: undefined,
+      launches: props.launches,
     };
   }
 
@@ -36,20 +37,28 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
   }
 
   render() {
+    const { launches } = this.props;
     return (
       <div className="LaunchesList">
         <div className="LaunchesList__header">
           <div className="LaunchesList__header-wrapper">
-            <div className="LaunchesList__title"></div>
-            <h2 className="LaunchesList__subtitle">launches 2018</h2>
+            <span className="LaunchesList__title" />
+            <h2 className="LaunchesList__subtitle">launches</h2>
           </div>
         </div>
         <FilterButtons
           options={this.availableRocketNames}
           onChange={this.handleFilterChange}
         />
-      
-        <div className="temp"></div>
+        <div className="LaunchesList__wrapper">
+          <ol className="LaunchesList__list">
+            {launches.map(launch =>
+              <LaunchItem launch={launch}
+                key={launch.flight_number}
+                onLaunchClick={this.props.onLaunchClick} />)
+            }
+          </ol>
+        </div>
         { /* render list */ }
       </div>
     );

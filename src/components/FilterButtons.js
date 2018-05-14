@@ -8,7 +8,7 @@ class FilterButtons extends React.Component{
 
   render(){
     const filterButtons = this.props.options.map(option =>
-            <Button className="filterButtons__button" buttonText={option} />)
+            <Button className="filterButtons__button" buttonText={option} onClick={this.props.onChange}/>)
     return(
       <div className="filterButtons">
         <Button className="filterButtons__button" buttonText="All Rockets" />
