@@ -5,13 +5,12 @@ class Button extends React.Component {
   static propTypes = {
     buttonText: PropTypes.string.isRequired,
   }
-  
+
   render() {
-    
-    const { buttonText , link, className="button" } = this.props;
-    
+    const { buttonText, link, className = "button" } = this.props;
+
     return (
-      <a href={link} className={className}>
+      <a href={link} className={className} onClick={this.props.onClick} >
         { buttonText }
       </a>
     );

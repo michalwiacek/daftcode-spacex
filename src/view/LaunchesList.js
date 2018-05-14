@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { format, toUpper } from 'date-fns';
 import { en } from 'date-fns/locale/en';
-import _ from 'lodash'
+import _ from 'lodash';
 import FilterButtons from '../components/FilterButtons';
 import LaunchItem from '../components/LaunchItem';
 
 class LaunchesList extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
+      rocketNameFilter: "",
       launches: props.launches,
     };
+    this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
   get availableRocketNames() {
@@ -18,8 +20,6 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
 
     const rocketNames = _.uniqWith(_.map(this.props.launches, 'rocket.rocket_name'), _.isEqual);
 
-
-    // get all names from launches
     return rocketNames;
   }
 
@@ -33,11 +33,14 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
   }
 
   handleFilterChange(value) {
+    console.log(value);
+    console.log("click click");
     this.setState({ rocketNameFilter: value });
   }
 
   render() {
     const { launches } = this.props;
+    const { rocketNameFilter } = this.state;
     return (
       <div className="LaunchesList">
         <div className="LaunchesList__header">
@@ -52,9 +55,11 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
         />
         <div className="LaunchesList__wrapper">
           <ol className="LaunchesList__list">
-            {launches.map(launch =>
-              <LaunchItem launch={launch}
+            {this.filteredLaunches.map((launch, index) =>
+              <LaunchItem 
+                launch={launch}
                 key={launch.flight_number}
+                id={index}
                 onLaunchClick={this.props.onLaunchClick} />)
             }
           </ol>

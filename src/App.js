@@ -37,6 +37,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
         );
 
       case 'details':
+        window.scrollTo(0, 0);
         return (
           <LaunchDetails
             launch={launch}

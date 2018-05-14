@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from 'react';
 
 class Footer extends React.PureComponent {
 
@@ -20,4 +20,4 @@ class Footer extends React.PureComponent {
   }
 }
 
-export default Footer
+export default Footer;

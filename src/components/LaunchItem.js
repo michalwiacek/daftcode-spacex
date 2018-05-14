@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { format, toUpper } from 'date-fns';
 import { en } from 'date-fns/locale/en';
-import arrow from '../assets/img/arrow_pointer.svg';
+//import arrow from '../assets/img/arrow_pointer.svg';
 
 class LaunchItem extends Component {
   constructor(){
@@ -10,9 +10,10 @@ class LaunchItem extends Component {
 
   render() {
     const { launch } = this.props;
+    const { key } = this.props;
     const date = format(this.props.launch.launch_date_local, 'DD MMMM YYYY', {locale: en})
-    const directionClass = this.props.launch.flight_number%2 ? 'direction-r' : 'direction-l'
-    const childDirectionClass = this.props.launch.flight_number%2 ? '-r' : '-l'
+    const directionClass = this.props.id%2 ? 'direction-l' : 'direction-r'
+    const childDirectionClass = this.props.id%2 ? '-l' : '-r'
     return (
       <li className={"LaunchItem " + directionClass} onClick={this.props.onLaunchClick} >
         <div className={"LaunchItem__date" + childDirectionClass}>{date}</div>
