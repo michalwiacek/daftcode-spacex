@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { format, toUpper } from 'date-fns';
 import { en } from 'date-fns/locale/en';
-import _ from 'lodash';
+import axios from 'axios';
+import { CircleLoader } from 'react-spinners';
 import FilterButtons from '../components/FilterButtons';
 import LaunchItem from '../components/LaunchItem';
 
@@ -9,38 +10,40 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
   constructor(props) {
     super(props);
     this.state = {
-      rocketNameFilter: "",
-      launches: props.launches,
+      launches: [],
+      isLoading: false,
+      error: false,
+      rocketNameFilter: '',
+      rocketNames: ['Falcon 1', 'Falcon 9', 'Falcon 10', 'Falcon Heavy'],
     };
     this.handleFilterChange = this.handleFilterChange.bind(this);
   }
-
-  get availableRocketNames() {
-    const { launches } = this.props;
-
-    const rocketNames = _.uniqWith(_.map(this.props.launches, 'rocket.rocket_name'), _.isEqual);
-
-    return rocketNames;
+  componentWillMount() {
+    this.fetchFilteredLaunches();
   }
-
-  get filteredLaunches() {
-    const { rocketNameFilter } = this.state;
-    const { launches } = this.props;
-
-    if (!rocketNameFilter) return launches;
-
-    return launches.filter(launch => launch.rocket.rocket_name === rocketNameFilter);
+  async fetchFilteredLaunches(value) {
+    this.setState({ isLoading: true, error: false });
+    let filter = `?rocket_name=${value}`;
+    if (!value) filter = '';
+    const axiosInstnce = axios.create({
+      baseURL: 'https://api.spacexdata.com/v2',
+    });
+    try {
+      const response = await axiosInstnce.get(`/launches${filter}`);
+      if (response.data.length === 0) this.setState({ error: true });
+      this.setState({ launches: response.data, isLoading: false });
+    } catch (e) {
+      this.setState({ error: true }); // 💩
+    }
   }
 
   handleFilterChange(value) {
-    console.log(value);
-    console.log("click click");
-    this.setState({ rocketNameFilter: value });
+    this.fetchFilteredLaunches(value);
   }
 
   render() {
-    const { launches } = this.props;
-    const { rocketNameFilter } = this.state;
+    const {rocketNameFilter, isLoading, launches, error} = this.state;
+
     return (
       <div className="LaunchesList">
         <div className="LaunchesList__header">
@@ -50,21 +53,34 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
           </div>
         </div>
         <FilterButtons
-          options={this.availableRocketNames}
+          options={this.state.rocketNames}
           onChange={this.handleFilterChange}
         />
-        <div className="LaunchesList__wrapper">
-          <ol className="LaunchesList__list">
-            {this.filteredLaunches.map((launch, index) =>
-              <LaunchItem 
-                launch={launch}
-                key={launch.flight_number}
-                id={index}
-                onLaunchClick={this.props.onLaunchClick} />)
-            }
-          </ol>
-        </div>
-        { /* render list */ }
+        {error ? (
+          <div className="error">
+            <h1 className="error__text">Sorry, no launches found</h1>
+          </div>
+        ) : (
+          <div className="LaunchesList__wrapper">
+            <div className="loading">
+              <CircleLoader className="circle"
+                color={'#ccac5b'}
+                loading={isLoading}
+                size={100}
+                />
+            </div>
+            <ol className="LaunchesList__list">
+              {launches.map((launch, index) =>
+                <LaunchItem
+                  launch={launch}
+                  key={launch.flight_number}
+                  id={index}
+                  onLaunchClick={this.props.onLaunchClick} />)
+              }
+            </ol>
+          </div> 
+          )
+        }
       </div>
     );
   }

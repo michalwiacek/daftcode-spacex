@@ -4,6 +4,7 @@
   flex-direction: column
   +basic_exp
   text-transform: uppercase
+  flex: 1
   &__header
     display: flex
     flex-direction: column
@@ -45,12 +46,14 @@
 .filterButtons
   display: flex
   justify-content: space-around
-  width: 720px
+  flex-wrap: wrap
+  width: 70vw
   margin: 1.6em auto
 
 .LaunchesList__wrapper
   position: relative
   margin: 4em 2.5em
+  min-height: 500px
   &:after
       content: ""
       position: absolute
@@ -61,3 +64,26 @@
       height: 100%
       border: .5px dashed $cool-grey
       transform: translate(-50%)
+
+.css-snl7ld
+  position: fixed !important
+  top: 50vh
+  left: 47vw
+  z-index: 99
+  &:before
+    content: ""
+    position: fixed
+    top: 0 
+    bottom: 0 
+    left: 0 
+    right: 0 
+    background: rgba(0, 0, 0, 0.7)
+    transition: opacity 500ms
+.error
+  display: flex
+  min-height: 500px
+  text-align: center
+  &__text
+    flex: 1
+    +basic-exp
+    color: white

@@ -9,7 +9,7 @@ import launchSite from './assets/sample_json_data/launch_site.json';
 import rocket from './assets/sample_json_data/rocket.json';
 import LaunchDetails from './view/LaunchDetails';
 
-import launches from './assets/sample_json_data/launches.json';
+//import launches from './assets/sample_json_data/launches.json';
 import LaunchesList from './view/LaunchesList';
 
 
@@ -31,7 +31,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
       case 'list':
         return (
           <LaunchesList
-            launches={launches}
+            //launches={launches}
             onLaunchClick={this.handleLaunchClick}
           />
         );
