@@ -2,7 +2,10 @@ import * as React from "react"
 import PropTypes from "prop-types";
 import {format, toUpper} from 'date-fns';
 import { en } from 'date-fns/locale/en'
+import { observe } from "mobx";
+import { inject } from "mobx-react";
 
+@inject('MainStore')
 class MissionRocket extends React.Component {
   constructor() {
     super();
@@ -12,9 +15,20 @@ class MissionRocket extends React.Component {
   }
   
   render() {
-
-    const { name, company, height, diameter, mass, first_flight, country, success_rate_pct, cost_per_launch, description} = this.props.rocket
-    const date = format(this.props.rocket.first_flight, 'DD MMMM YYYY', {locale: en})
+    const { rocketData } = this.props.MainStore;
+    const {
+      name,
+      company,
+      height,
+      diameter,
+      mass,
+      first_flight,
+      country,
+      success_rate_pct,
+      cost_per_launch,
+      description,
+    } = rocketData;
+    const date = format(rocketData.first_flight, 'DD MMMM YYYY', {locale: en})
 
     return (
       <div className="MissionDetail">
@@ -41,4 +55,4 @@ class MissionRocket extends React.Component {
   }
 }
 
-export default MissionRocket
+export default MissionRocket;

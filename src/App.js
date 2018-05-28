@@ -1,5 +1,6 @@
 import { hot } from 'react-hot-loader';
 import * as React from 'react';
+import { Provider, observer, inject } from 'mobx-react';
 
 import './styles/theme.sass';
 import Footer from './components/Footer';
@@ -13,57 +14,14 @@ import LaunchDetails from './view/LaunchDetails';
 import LaunchesList from './view/LaunchesList';
 
 
+@inject('MainStore')
+@observer
 class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  constructor(props) {
-    super(props);
-    this.state = {
-      viewName: 'list',
-    };
-
-    this.handleLaunchClick = this.handleLaunchClick.bind(this);
-    this.handleBackClick = this.handleBackClick.bind(this);
-  }
-
-  get activeViewComponent() {
-    const { viewName } = this.state;
-
-    switch (viewName) {
-      case 'list':
-        return (
-          <LaunchesList
-            //launches={launches}
-            onLaunchClick={this.handleLaunchClick}
-          />
-        );
-
-      case 'details':
-        window.scrollTo(0, 0);
-        return (
-          <LaunchDetails
-            launch={launch}
-            launchSite={launchSite}
-            rocket={rocket}
-            onBackClick={this.handleBackClick}
-          />
-        );
-
-      default: return null;
-    }
-  }
-
-  handleLaunchClick() {
-    this.setState({ viewName: 'details' });
-  }
-
-  handleBackClick() {
-    this.setState({ viewName: 'list' });
-  }
-
-
   render() {
+    const { MainStore } = this.props;
     return (
       <main>
-        {this.activeViewComponent}
+        {MainStore.view}
         <Footer />
       </main>
     );

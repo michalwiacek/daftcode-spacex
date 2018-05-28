@@ -1,19 +1,19 @@
 import * as React from 'react';
 import Button from './Button';
+import { inject, observer } from 'mobx-react';
+import { action } from 'mobx';
 
+@inject('MainStore')
+@observer
 class FilterButtons extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "",
-    };
-  }
+  @action.bound
   handleClick(value, event) {
-    this.props.onChange(value);
+    const {MainStore} = this.props;
+    MainStore.setFilter(value);
   }
-  
   render() {
-    const filterButtons = this.props.options.map(option =>
+    const { rocketNames } = this.props.MainStore;
+    const filterButtons = rocketNames.map(option =>
       <Button 
         key={option}
         className="filterButtons__button"

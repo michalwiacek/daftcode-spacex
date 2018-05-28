@@ -2,48 +2,18 @@ import * as React from 'react';
 import { format, toUpper } from 'date-fns';
 import { en } from 'date-fns/locale/en';
 import axios from 'axios';
+import { Provider, observable, action } from 'mobx';
+import { observer, inject } from 'mobx-react';
+
 import { CircleLoader } from 'react-spinners';
 import FilterButtons from '../components/FilterButtons';
 import LaunchItem from '../components/LaunchItem';
 
+@inject('MainStore')
+@observer
 class LaunchesList extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  constructor(props) {
-    super(props);
-    this.state = {
-      launches: [],
-      isLoading: false,
-      error: false,
-      rocketNameFilter: '',
-      rocketNames: ['Falcon 1', 'Falcon 9', 'Falcon 10', 'Falcon Heavy'],
-    };
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-  }
-  componentWillMount() {
-    this.fetchFilteredLaunches();
-  }
-  async fetchFilteredLaunches(value) {
-    this.setState({ isLoading: true, error: false });
-    let filter = `?rocket_name=${value}`;
-    if (!value) filter = '';
-    const axiosInstnce = axios.create({
-      baseURL: 'https://api.spacexdata.com/v2',
-    });
-    try {
-      const response = await axiosInstnce.get(`/launches${filter}`);
-      if (response.data.length === 0) this.setState({ error: true });
-      this.setState({ launches: response.data, isLoading: false });
-    } catch (e) {
-      this.setState({ error: true }); // 💩
-    }
-  }
-
-  handleFilterChange(value) {
-    this.fetchFilteredLaunches(value);
-  }
-
   render() {
-    const {rocketNameFilter, isLoading, launches, error} = this.state;
-
+    const { launchesData, state, error } = this.props.MainStore;
     return (
       <div className="LaunchesList">
         <div className="LaunchesList__header">
@@ -52,10 +22,7 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
             <h2 className="LaunchesList__subtitle">launches</h2>
           </div>
         </div>
-        <FilterButtons
-          options={this.state.rocketNames}
-          onChange={this.handleFilterChange}
-        />
+        <FilterButtons />
         {error ? (
           <div className="error">
             <h1 className="error__text">Sorry, no launches found</h1>
@@ -65,12 +32,12 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
             <div className="loading">
               <CircleLoader className="circle"
                 color={'#ccac5b'}
-                loading={isLoading}
+                loading={state === "pending" ? true : false}
                 size={100}
                 />
             </div>
             <ol className="LaunchesList__list">
-              {launches.map((launch, index) =>
+              {launchesData.map((launch, index) =>
                 <LaunchItem
                   launch={launch}
                   key={launch.flight_number}
@@ -78,7 +45,7 @@ class LaunchesList extends React.Component { // eslint-disable-line react/prefer
                   onLaunchClick={this.props.onLaunchClick} />)
               }
             </ol>
-          </div> 
+          </div>
           )
         }
       </div>

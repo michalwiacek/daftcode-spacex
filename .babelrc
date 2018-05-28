@@ -12,5 +12,8 @@
     "react",
     "stage-2"
   ],
-  "plugins": ["emotion"]
+  "plugins": [
+    "emotion",
+    "transform-decorators-legacy"
+  ]
 }

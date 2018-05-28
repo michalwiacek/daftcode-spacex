@@ -1,5 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Provider } from 'mobx-react';
+import App from './App';
+import MainStore from './stores/MainStore';
+
+const Root = (
+  <Provider MainStore={MainStore}>
+    <App />
+  </Provider>
+);
+ReactDOM.render(Root, document.getElementById('root'));
