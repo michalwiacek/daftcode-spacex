@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/daftcode-spacex/static/css/main.42ed3c4b.css",
+    "main.js": "/daftcode-spacex/static/js/main.c413bbec.js",
+    "static/media/mars.png": "/daftcode-spacex/static/media/mars.b6aa528b21dc4c1f3db7.png",
+    "static/media/rocket.png": "/daftcode-spacex/static/media/rocket.b674e775d64eda5ae3cb.png",
+    "static/media/space_x_logo_bw_centered.png": "/daftcode-spacex/static/media/space_x_logo_bw_centered.bf917ab67e223ef61117.png",
+    "static/media/arrow.png": "/daftcode-spacex/static/media/arrow.8662b917c94d9b13fa2c.png",
+    "index.html": "/daftcode-spacex/index.html",
+    "static/media/arrow_pointer.svg": "/daftcode-spacex/static/media/arrow_pointer.9f101a1992e7b3599698.svg",
+    "main.42ed3c4b.css.map": "/daftcode-spacex/static/css/main.42ed3c4b.css.map",
+    "main.c413bbec.js.map": "/daftcode-spacex/static/js/main.c413bbec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42ed3c4b.css",
+    "static/js/main.c413bbec.js"
+  ]
+}
