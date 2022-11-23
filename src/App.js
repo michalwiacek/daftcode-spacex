@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import './styles/theme.sass';
+import '../src/styles/theme.sass';
 import Footer from './components/Footer';
 
 import launch from './assets/sample_json_data/launch.json';
