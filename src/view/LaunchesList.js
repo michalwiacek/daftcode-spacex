@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { format, toUpper } from 'date-fns';
-import { en } from 'date-fns/locale/en';
 import axios from 'axios';
 import { CircleLoader } from 'react-spinners';
 import FilterButtons from '../components/FilterButtons';

@@ -8,8 +8,6 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import Moment from 'react-moment'
-import format from "date-fns/format"
 
 /**
  * Util function to display diff time in seconds between two parameters

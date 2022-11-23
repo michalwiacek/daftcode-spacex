@@ -1,4 +1,3 @@
-import { hot } from 'react-hot-loader';
 import * as React from 'react';
 
 import './styles/theme.sass';
@@ -9,7 +8,6 @@ import launchSite from './assets/sample_json_data/launch_site.json';
 import rocket from './assets/sample_json_data/rocket.json';
 import LaunchDetails from './view/LaunchDetails';
 
-//import launches from './assets/sample_json_data/launches.json';
 import LaunchesList from './view/LaunchesList';
 
 
@@ -70,4 +68,4 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
   }
 }
 
-export default hot(module)(App);
+export default App;
